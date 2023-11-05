@@ -26,12 +26,13 @@
             <img src="images/logo.jpg" alt="" class="logo">
             <div class="links">
 
-                <div class="icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <ul>
+
+                <button id="burgerButton" class="icon">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <ul id="ul" style="display: none;">
                     <li> <a href="#services">Services</a></li>
                     <li> <a href="#trending">Trending</a></li>
                     <li> <a href="#aboutus">About Us</a></li>
@@ -220,7 +221,18 @@
     <!-- -------------------------------------------------------------------------------------------------- -->
 
 
+    <script>
+        document.getElementById("burgerButton").addEventListener("click", function () {
+            this.classList.toggle("active"); // Toggle the 'active' class
+            var sidebar = document.getElementById('ul');
 
+            // Check the current display property
+            var currentDisplay = window.getComputedStyle(sidebar).getPropertyValue('display');
+
+            // Toggle between 'none' and 'block'
+            sidebar.style.display = (currentDisplay === 'none') ? 'block' : 'none';
+        });
+    </script>
 
     <!-- -------------------------------------------                THE END                  --------------------------------------- -->
 
